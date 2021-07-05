@@ -68,15 +68,22 @@ class Api extends ResourceController
     /** Registro logs de la caja */
     public function logsBox()
     {
+        $data = $this->coreModel->logsBox();
+        return $this->genericResponse(200, 'Logs de Caja', $data);
     }
 
-    /** Estado de la Caja */
+    /** Estado de la Caja
+     *  - Actual
+     *  - Por fecha
+     */
     public function statusBox()
     {
-        $data = $this->coreModel->statusBox();
+        $date = $this->request->getPost('date');
+        $data = $this->coreModel->statusBox($date);
         return $this->genericResponse(200, 'Estado Caja', $data);
     }
 
+    /** Respuesta genérica del api */
     private function genericResponse($code, $message, $body)
     {
         return $this->respond(array('code' => $code, 'message' => $message, 'body' => $body));

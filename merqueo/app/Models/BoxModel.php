@@ -51,7 +51,7 @@ class BoxModel extends Model
     {
         $logModel = new LogsModel();
         $data = $this->where('id', 1)->findAll();
-        $logModel->setLog('box', 'update', $data);
+        $logModel->setLog('box', 'update', '', $data);
     }
 
     protected function mapReturn(array $data)

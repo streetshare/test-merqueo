@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use App\Models\LogsModel;
 
 class CashModel extends Model
 {
@@ -93,7 +92,7 @@ class CashModel extends Model
     {
         $logModel = new LogsModel();
         $data = $this->where('box', 1)->findAll();
-        $logModel->setLog('cash', 'update', $data);
+        $logModel->setLog('cash', 'update', '', $data);
     }
 
     protected function mapReturn(array $data)

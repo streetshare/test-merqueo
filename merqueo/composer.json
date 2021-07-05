@@ -13,13 +13,14 @@
 		"kint-php/kint": "^3.3",
 		"laminas/laminas-escaper": "^2.6",
 		"psr/log": "^1.1",
-		"firebase/php-jwt": "^5.3"
+		"firebase/php-jwt": "^5.3",
+		"phpunit/php-code-coverage": "^9.2"
 	},
 	"require-dev": {
 		"codeigniter4/codeigniter4-standard": "^1.0",
 		"fakerphp/faker": "^1.9",
 		"mikey179/vfsstream": "^1.6",
-		"phpunit/phpunit": "^9.1",
+		"phpunit/phpunit": "^9.5",
 		"predis/predis": "^1.1",
 		"squizlabs/php_codesniffer": "^3.3"
 	},
@@ -35,6 +36,11 @@
 		]
 	},
 	"scripts": {
+		"db": "php spark db:create merqueo",
+		"table": "php spark migrate",
+		"data": "php spark db:seed Init",
+		"serve": "php spark serve",
+		"load": "composer db; composer table; composer data; composer serve;",
 		"post-update-cmd": [
 			"CodeIgniter\\ComposerScripts::postUpdate"
 		],

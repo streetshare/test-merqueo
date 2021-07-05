@@ -38,8 +38,9 @@ $routes->group('v1', function ($routes) {
 	$routes->post('load', 'Api::loadBox');
 	$routes->get('clearbox', 'Api::clearBox');
 	$routes->get('status', 'Api::statusBox');
-	//$routes->post('status', 'Api::statusBox');
+	$routes->post('status', 'Api::statusBox');
 	$routes->post('sell', 'Api::sellBox');
+	$routes->get('logs', 'Api::logsBox');
 });
 
 /*

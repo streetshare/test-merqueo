@@ -23,8 +23,7 @@ class Log extends Migration
 				'constraint' => '100',
 			],
 			'data' =>[
-				'type' => 'VARCHAR',
-				'constraint' => '300'
+				'type' => 'TEXT',
 			],
 			'created' => [
 				'type'       => 'TIMESTAMP',
