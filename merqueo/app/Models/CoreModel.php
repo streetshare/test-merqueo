@@ -33,7 +33,7 @@ class CoreModel extends Model
 		$mapped = [];
 		for ($i = 0, $j = COUNT($data); $i < $j; $i++) {
 			$row = $data[$i];
-			if (!empty($row['code'] && !empty($row['count']))) {
+			if (isset($row['code']) && isset($row['count'])) {
 				$mapped[] = array(
 					'code' => $row['code'],
 					'counter' => $row['count']

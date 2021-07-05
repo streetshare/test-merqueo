@@ -6,8 +6,8 @@ use CodeIgniter\Test\CIUnitTestCase;
 
 class CoreModelTest extends CIUnitTestCase
 {
-    public function testFooNotBar()
-    {
+    public function testClearBox()
+    {    
         $this->assertTrue(TRUE); 
     }
 }

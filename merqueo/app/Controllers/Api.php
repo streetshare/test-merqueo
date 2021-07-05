@@ -39,13 +39,15 @@ class Api extends ResourceController
         if (!empty($data)) {
             $data = str_replace(' ', '', $data);
             $data = json_decode($data, true);
-            $total = $data['total'] - $data['payment'];
-            $resp = $this->coreModel->validateSell($total);
-            if ($resp !== FALSE) {
-                $this->coreModel->updateCash($data['counter'], $resp['cash']);
-                return $this->genericResponse(200, 'Venta realizada', $resp);
-            } else {
-                return $this->genericResponse(400, 'No hay cambio suficiente', []);
+            if(isset($data['total']) && isset($data['payment'])){
+                $total = $data['total'] - $data['payment'];
+                $resp = $this->coreModel->validateSell($total);
+                if ($resp !== FALSE) {
+                    $this->coreModel->updateCash($data['counter'], $resp['cash']);
+                    return $this->genericResponse(200, 'Venta realizada', $resp);
+                } else {
+                    return $this->genericResponse(400, 'No hay cambio suficiente', []);
+                }
             }
         }
         return $this->genericResponse(400, 'Falta información', []);
